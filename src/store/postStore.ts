@@ -1,21 +1,22 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Post, GeneratedVariation } from "@/types/post";
+import type { Post, GeneratedVariation, SocialPlatform, PostType } from "@/types/post";
 
 interface PostStore {
   posts: Post[];
   generatedVariations: GeneratedVariation[];
   isLoading: boolean;
+  currentPlatform: SocialPlatform | null;
+  currentType: PostType | null;
   
-  // Actions
   addPost: (post: Post) => void;
   updatePost: (id: string, updates: Partial<Post>) => void;
   deletePost: (id: string) => void;
   setGeneratedVariations: (variations: GeneratedVariation[]) => void;
   clearGeneratedVariations: () => void;
   setLoading: (loading: boolean) => void;
+  setGenerationContext: (platform: SocialPlatform, type: PostType) => void;
   
-  // Getters
   getPostById: (id: string) => Post | undefined;
   getPostsByStatus: (status: Post["status"]) => Post[];
   getPostsByPlatform: (platform: Post["platform"]) => Post[];
@@ -27,6 +28,8 @@ export const usePostStore = create<PostStore>()(
       posts: [],
       generatedVariations: [],
       isLoading: false,
+      currentPlatform: null,
+      currentType: null,
 
       addPost: (post) =>
         set((state) => ({
@@ -53,6 +56,9 @@ export const usePostStore = create<PostStore>()(
       clearGeneratedVariations: () => set({ generatedVariations: [] }),
 
       setLoading: (loading) => set({ isLoading: loading }),
+
+      setGenerationContext: (platform, type) =>
+        set({ currentPlatform: platform, currentType: type }),
 
       getPostById: (id) => get().posts.find((post) => post.id === id),
 

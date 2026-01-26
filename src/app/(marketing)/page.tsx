@@ -5,7 +5,6 @@ import { ArrowRight, Sparkles, BarChart3, Calendar, Zap } from "lucide-react";
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
       <section className="container px-4 py-24 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
@@ -34,7 +33,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="border-t bg-muted/50 py-24">
         <div className="container px-4">
           <div className="mx-auto max-w-2xl text-center">
@@ -90,7 +88,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="container px-4 py-24">
         <div className="mx-auto max-w-2xl rounded-lg border bg-primary/5 p-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight">

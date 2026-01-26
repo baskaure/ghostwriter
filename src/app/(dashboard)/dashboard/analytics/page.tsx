@@ -15,7 +15,6 @@ export default function AnalyticsPage() {
         <Button variant="outline">Exporter le rapport</Button>
       </div>
 
-      {/* Key Metrics */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -71,7 +70,6 @@ export default function AnalyticsPage() {
         </Card>
       </div>
 
-      {/* Charts Section */}
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
@@ -99,7 +97,6 @@ export default function AnalyticsPage() {
         </Card>
       </div>
 
-      {/* Top Posts */}
       <Card>
         <CardHeader>
           <CardTitle>Top 5 posts performants</CardTitle>

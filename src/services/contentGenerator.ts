@@ -8,16 +8,13 @@ interface GenerateOptions {
   length?: "court" | "moyen" | "long";
 }
 
-// Simule la génération de contenu par l'IA
 export async function generateContent(
   options: GenerateOptions
 ): Promise<GeneratedVariation[]> {
-  // Simulation d'un délai de génération
   await new Promise((resolve) => setTimeout(resolve, 1500));
 
   const { prompt, platform, type, tone = "professionnel", length = "moyen" } = options;
 
-  // Templates de base selon le type
   const templates = {
     conseil: {
       linkedin: [
@@ -71,7 +68,6 @@ export async function generateContent(
   
   // Génère 3 variations
   const variations: GeneratedVariation[] = platformTemplates.slice(0, 3).map((template, index) => {
-    // Remplace les placeholders par du contenu générique basé sur le prompt
     let content = template
       .replace(/\[Conseil principal\]/g, `Focus sur l'essentiel : ${prompt.split(' ').slice(0, 5).join(' ')}`)
       .replace(/\[Conseil secondaire\]/g, `Priorisez la qualité`)
@@ -103,7 +99,6 @@ export async function generateContent(
       })
       .replace(/\[Conclusion\]/g, `En résumé, ${prompt.split(' ').slice(0, 5).join(' ')} est essentiel`);
 
-    // Ajuste la longueur selon l'option
     if (length === "court" && content.length > 200) {
       content = content.substring(0, 200) + "...";
     } else if (length === "long" && content.length < 300) {
@@ -113,8 +108,8 @@ export async function generateContent(
     return {
       id: `var-${Date.now()}-${index}`,
       content,
-      compatibilityScore: 85 + Math.floor(Math.random() * 15), // 85-100%
-      estimatedEngagement: 50 + Math.floor(Math.random() * 200), // 50-250
+      compatibilityScore: 85 + Math.floor(Math.random() * 15),
+      estimatedEngagement: 50 + Math.floor(Math.random() * 200),
     };
   });
 

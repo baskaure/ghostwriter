@@ -8,7 +8,6 @@ export default function MarketingLayout({
 }) {
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between px-4">
           <Link href="/" className="flex items-center space-x-2">
@@ -43,10 +42,8 @@ export default function MarketingLayout({
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1">{children}</main>
 
-      {/* Footer */}
       <footer className="border-t bg-muted/50">
         <div className="container px-4 py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">

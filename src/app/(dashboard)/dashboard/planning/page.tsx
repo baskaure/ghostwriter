@@ -19,7 +19,6 @@ export default function PlanningPage() {
         </div>
       </div>
 
-      {/* Calendar View */}
       <Card>
         <CardHeader>
           <CardTitle>Calendrier</CardTitle>
@@ -36,7 +35,6 @@ export default function PlanningPage() {
         </CardContent>
       </Card>
 
-      {/* Upcoming Posts */}
       <Card>
         <CardHeader>
           <CardTitle>Posts à venir</CardTitle>
