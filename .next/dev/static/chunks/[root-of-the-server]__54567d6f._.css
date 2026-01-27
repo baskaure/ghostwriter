@@ -605,6 +605,10 @@
     margin-block: calc(var(--spacing) * 1);
   }
 
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
@@ -914,6 +918,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
   .grid-rows-\[auto_auto\] {
     grid-template-rows: auto auto;
   }
@@ -924,6 +932,10 @@
 
   .flex-row {
     flex-direction: row;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
   }
 
   .items-center {
@@ -944,6 +956,10 @@
 
   .justify-start {
     justify-content: flex-start;
+  }
+
+  .gap-0\.5 {
+    gap: calc(var(--spacing) * .5);
   }
 
   .gap-1 {
@@ -1024,6 +1040,12 @@
     justify-self: flex-end;
   }
 
+  .truncate {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
   .overflow-hidden {
     overflow: hidden;
   }
@@ -1086,12 +1108,40 @@
     border-style: dashed;
   }
 
+  .border-border {
+    border-color: var(--color-border);
+  }
+
   .border-input {
     border-color: var(--color-input);
   }
 
   .border-primary {
     border-color: var(--color-primary);
+  }
+
+  .border-primary\/50 {
+    border-color: #f8f8f880;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-primary\/50 {
+      border-color: color-mix(in oklab, var(--color-primary) 50%, transparent);
+    }
+  }
+
+  .border-primary\/60 {
+    border-color: #f8f8f899;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-primary\/60 {
+      border-color: color-mix(in oklab, var(--color-primary) 60%, transparent);
+    }
+  }
+
+  .border-transparent {
+    border-color: #0000;
   }
 
   .bg-background {
@@ -1240,6 +1290,14 @@
     padding: calc(var(--spacing) * 12);
   }
 
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
+
+  .px-1\.5 {
+    padding-inline: calc(var(--spacing) * 1.5);
+  }
+
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -1254,6 +1312,10 @@
 
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
+  }
+
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * .5);
   }
 
   .py-1 {
@@ -1304,6 +1366,10 @@
     padding-bottom: calc(var(--spacing) * 2);
   }
 
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
+
   .pl-2 {
     padding-left: calc(var(--spacing) * 2);
   }
@@ -1318,6 +1384,10 @@
 
   .text-center {
     text-align: center;
+  }
+
+  .text-left {
+    text-align: left;
   }
 
   .font-sans {
@@ -1362,6 +1432,10 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+
+  .text-\[9px\] {
+    font-size: 9px;
   }
 
   .leading-8 {
@@ -1426,6 +1500,10 @@
 
   .text-destructive {
     color: var(--color-destructive);
+  }
+
+  .text-foreground {
+    color: var(--color-foreground);
   }
 
   .text-gray-800 {
@@ -2019,6 +2097,12 @@
     }
   }
 
+  @media (min-width: 64rem) {
+    .lg\:grid-cols-\[2fr\,1\.4fr\] {
+      grid-template-columns: 2fr, 1.4fr;
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
     .dark\:border-input {
       border-color: var(--color-input);
@@ -2200,6 +2284,69 @@
 
   :is(.data-\[variant\=destructive\]\:\*\:\[svg\]\:\!text-destructive[data-variant="destructive"] > *):is(svg) {
     color: var(--color-destructive) !important;
+  }
+
+  .\[\&\>svg\]\:pointer-events-none > svg {
+    pointer-events: none;
+  }
+
+  .\[\&\>svg\]\:size-3 > svg {
+    width: calc(var(--spacing) * 3);
+    height: calc(var(--spacing) * 3);
+  }
+
+  @media (hover: hover) {
+    a.\[a\&\]\:hover\:bg-accent:hover {
+      background-color: var(--color-accent);
+    }
+  }
+
+  @media (hover: hover) {
+    a.\[a\&\]\:hover\:bg-destructive\/90:hover {
+      background-color: #ff0301e6;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      a.\[a\&\]\:hover\:bg-destructive\/90:hover {
+        background-color: color-mix(in oklab, var(--color-destructive) 90%, transparent);
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    a.\[a\&\]\:hover\:bg-primary\/90:hover {
+      background-color: #f8f8f8e6;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      a.\[a\&\]\:hover\:bg-primary\/90:hover {
+        background-color: color-mix(in oklab, var(--color-primary) 90%, transparent);
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    a.\[a\&\]\:hover\:bg-secondary\/90:hover {
+      background-color: #0b0b0be6;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      a.\[a\&\]\:hover\:bg-secondary\/90:hover {
+        background-color: color-mix(in oklab, var(--color-secondary) 90%, transparent);
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    a.\[a\&\]\:hover\:text-accent-foreground:hover {
+      color: var(--color-accent-foreground);
+    }
+  }
+
+  @media (hover: hover) {
+    a.\[a\&\]\:hover\:underline:hover {
+      text-decoration-line: underline;
+    }
   }
 }
 

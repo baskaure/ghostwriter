@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "lucide-react";
+import { EditorialCalendar } from "@/components/organisms";
 
 export default function PlanningPage() {
   return (
@@ -19,53 +19,7 @@ export default function PlanningPage() {
         </div>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Calendrier</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex h-[600px] items-center justify-center rounded-lg border-2 border-dashed">
-            <div className="text-center">
-              <Calendar className="mx-auto h-12 w-12 text-muted-foreground" />
-              <p className="mt-4 text-sm text-muted-foreground">
-                Vue calendrier à implémenter
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Posts à venir</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between rounded-lg border p-4">
-              <div>
-                <p className="font-medium">Post LinkedIn - Conseils productivité</p>
-                <p className="text-sm text-muted-foreground">
-                  Lundi 15 janvier 2024 à 9h00
-                </p>
-              </div>
-              <Button variant="outline" size="sm">
-                Modifier
-              </Button>
-            </div>
-            <div className="flex items-center justify-between rounded-lg border p-4">
-              <div>
-                <p className="font-medium">Post Twitter - Thread sur l'IA</p>
-                <p className="text-sm text-muted-foreground">
-                  Mercredi 17 janvier 2024 à 14h00
-                </p>
-              </div>
-              <Button variant="outline" size="sm">
-                Modifier
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      <EditorialCalendar />
     </div>
   );
 }
