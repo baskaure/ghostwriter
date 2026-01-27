@@ -1803,6 +1803,10 @@
     opacity: .5;
   }
 
+  .data-\[error\=true\]\:text-destructive[data-error="true"] {
+    color: var(--color-destructive);
+  }
+
   .data-\[inset\]\:pl-8[data-inset] {
     padding-left: calc(var(--spacing) * 8);
   }
