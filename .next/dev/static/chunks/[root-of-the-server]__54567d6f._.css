@@ -769,10 +769,6 @@
     height: 300px;
   }
 
-  .h-\[600px\] {
-    height: 600px;
-  }
-
   .h-\[var\(--radix-select-trigger-height\)\] {
     height: var(--radix-select-trigger-height);
   }

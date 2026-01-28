@@ -58,7 +58,13 @@ export const useAuthStore = create<AuthStore>()(
       },
 
       checkAuth: async () => {
-        const { token } = get();
+        const { token, user, isAuthenticated } = get();
+
+        // Si on a déjà un user valide en mémoire, ne pas re-vérifier
+        if (token && user && isAuthenticated) {
+          return;
+        }
+
         if (!token) {
           set({ isAuthenticated: false, user: null });
           return;
