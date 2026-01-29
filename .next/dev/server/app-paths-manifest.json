@@ -1,8 +1,7 @@
 {
   "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(auth)/register/page": "app/(auth)/register/page.js",
-  "/(dashboard)/dashboard/generate/page": "app/(dashboard)/dashboard/generate/page.js",
   "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/dashboard/planning/page": "app/(dashboard)/dashboard/planning/page.js",
   "/(dashboard)/dashboard/profile/page": "app/(dashboard)/dashboard/profile/page.js",
-  "/page": "app/page.js"
+  "/(dashboard)/dashboard/profile/preferences/page": "app/(dashboard)/dashboard/profile/preferences/page.js"
 }

@@ -60,7 +60,7 @@ export default function GeneratePage() {
 
     addPost(newPost);
     setSelectedVariation(variationId);
-
+    
     setTimeout(() => {
       alert("Post sauvegardé dans votre bibliothèque !");
     }, 100);

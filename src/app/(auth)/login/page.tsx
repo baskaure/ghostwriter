@@ -72,12 +72,12 @@ export default function LoginPage() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="vous@exemple.com"
+          <Input
+            type="email"
+            placeholder="vous@exemple.com"
                       disabled={form.formState.isSubmitting}
                       {...field}
-                    />
+          />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -88,15 +88,15 @@ export default function LoginPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between">
                     <FormLabel>Mot de passe</FormLabel>
-                    <Link
-                      href="/forgot-password"
-                      className="text-sm text-primary hover:underline"
-                    >
-                      Mot de passe oublié ?
-                    </Link>
-                  </div>
+            <Link
+              href="/forgot-password"
+              className="text-sm text-primary hover:underline"
+            >
+              Mot de passe oublié ?
+            </Link>
+          </div>
                   <FormControl>
                     <Input
                       type="password"

@@ -93,12 +93,12 @@ export default function RegisterPage() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="vous@exemple.com"
+          <Input
+            type="email"
+            placeholder="vous@exemple.com"
                       disabled={form.formState.isSubmitting}
                       {...field}
-                    />
+          />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -117,9 +117,9 @@ export default function RegisterPage() {
                       {...field}
                     />
                   </FormControl>
-                  <p className="text-xs text-muted-foreground">
-                    Minimum 8 caractères
-                  </p>
+          <p className="text-xs text-muted-foreground">
+            Minimum 8 caractères
+          </p>
                   <FormMessage />
                 </FormItem>
               )}
@@ -144,7 +144,7 @@ export default function RegisterPage() {
             {form.formState.errors.root && (
               <div className="rounded-lg bg-destructive/10 p-3 text-sm text-destructive">
                 {form.formState.errors.root.message}
-              </div>
+        </div>
             )}
             <Button
               className="w-full"
@@ -159,7 +159,7 @@ export default function RegisterPage() {
               ) : (
                 "Créer mon compte"
               )}
-            </Button>
+        </Button>
           </form>
         </Form>
         <div className="relative">

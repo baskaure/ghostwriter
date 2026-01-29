@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuthStore } from "@/store/authStore";
+import { useProfile } from "@/hooks/useProfile";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/organisms";
@@ -8,7 +8,21 @@ import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 
 export default function ProfilePage() {
-  const { user } = useAuthStore();
+  const { profile: user, isLoading } = useProfile();
+
+  if (isLoading && !user) {
+    return (
+      <div className="space-y-6">
+        <PageHeader
+          title="Profil"
+          description="Informations de votre compte"
+        />
+        <p className="text-sm text-muted-foreground">
+          Chargement des informations utilisateur...
+        </p>
+      </div>
+    );
+  }
 
   if (!user) {
     return (
@@ -188,7 +202,7 @@ export default function ProfilePage() {
                   ? user.connectedAccounts.linkedin.username
                   : "Non connecté"}
               </span>
-            </div>
+              </div>
             <div className="flex items-center gap-2">
               <Badge
                 variant={user.connectedAccounts.twitter.connected ? "outline" : "secondary"}

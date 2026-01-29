@@ -56,12 +56,12 @@ export default function ContenusPage() {
         title="Contenus"
         description={`Gérez votre bibliothèque de posts (${posts.length} post${posts.length > 1 ? "s" : ""})`}
         action={
-          <Link href="/dashboard/generate">
-            <Button>
-              <Plus className="mr-2 h-4 w-4" />
-              Nouveau post
-            </Button>
-          </Link>
+        <Link href="/dashboard/generate">
+          <Button>
+            <Plus className="mr-2 h-4 w-4" />
+            Nouveau post
+          </Button>
+        </Link>
         }
       />
 
