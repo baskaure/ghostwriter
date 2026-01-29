@@ -1,6 +1,5 @@
 {
   "/[locale]/(auth)/login/page": "app/[locale]/(auth)/login/page.js",
-  "/[locale]/(auth)/register/page": "app/[locale]/(auth)/register/page.js",
   "/[locale]/(dashboard)/dashboard/analytics/page": "app/[locale]/(dashboard)/dashboard/analytics/page.js",
   "/[locale]/(dashboard)/dashboard/contenus/page": "app/[locale]/(dashboard)/dashboard/contenus/page.js",
   "/[locale]/(dashboard)/dashboard/generate/page": "app/[locale]/(dashboard)/dashboard/generate/page.js",
@@ -9,7 +8,5 @@
   "/[locale]/(dashboard)/dashboard/profile/integrations/page": "app/[locale]/(dashboard)/dashboard/profile/integrations/page.js",
   "/[locale]/(dashboard)/dashboard/profile/page": "app/[locale]/(dashboard)/dashboard/profile/page.js",
   "/[locale]/(dashboard)/dashboard/profile/preferences/page": "app/[locale]/(dashboard)/dashboard/profile/preferences/page.js",
-  "/[locale]/(dashboard)/dashboard/profile/writing-style/page": "app/[locale]/(dashboard)/dashboard/profile/writing-style/page.js",
-  "/[locale]/page": "app/[locale]/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/[locale]/(dashboard)/dashboard/profile/writing-style/page": "app/[locale]/(dashboard)/dashboard/profile/writing-style/page.js"
 }
