@@ -54,9 +54,9 @@ export function DashboardHeader() {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link href="/dashboard/settings" className="flex items-center">
+                <Link href="/dashboard/profile" className="flex items-center">
                   <Settings className="mr-2 h-4 w-4" />
-                  Paramètres
+                  Profil
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
