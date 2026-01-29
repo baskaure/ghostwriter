@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -12,36 +12,37 @@ import {
   Settings,
 } from "lucide-react";
 
-const navigation = [
-  {
-    name: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    name: "Générer un post",
-    href: "/dashboard/generate",
-    icon: Sparkles,
-  },
-  {
-    name: "Contenus",
-    href: "/dashboard/contenus",
-    icon: FileText,
-  },
-  {
-    name: "Planning",
-    href: "/dashboard/planning",
-    icon: Calendar,
-  },
-  {
-    name: "Analytics",
-    href: "/dashboard/analytics",
-    icon: BarChart3,
-  },
-];
-
 export function DashboardSidebar() {
+  const t = useTranslations("dashboard");
   const pathname = usePathname();
+
+  const navigation = [
+    {
+      name: t("overview"),
+      href: "/dashboard",
+      icon: LayoutDashboard,
+    },
+    {
+      name: t("generate"),
+      href: "/dashboard/generate",
+      icon: Sparkles,
+    },
+    {
+      name: t("contents"),
+      href: "/dashboard/contenus",
+      icon: FileText,
+    },
+    {
+      name: t("planning"),
+      href: "/dashboard/planning",
+      icon: Calendar,
+    },
+    {
+      name: t("analytics"),
+      href: "/dashboard/analytics",
+      icon: BarChart3,
+    },
+  ];
 
   return (
     <aside className="hidden w-64 border-r bg-muted/40 md:flex md:flex-col">
@@ -81,7 +82,7 @@ export function DashboardSidebar() {
           )}
         >
           <Settings className="h-5 w-5" />
-          Paramètres
+          {t("settings")}
         </Link>
       </div>
     </aside>

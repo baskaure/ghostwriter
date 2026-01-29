@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   ChevronLeft,
@@ -32,6 +33,8 @@ export function Pagination({
   showFirstLast = true,
   className,
 }: PaginationProps) {
+  const t = useTranslations("common");
+
   if (totalPages <= 1) {
     return null;
   }
@@ -111,7 +114,7 @@ export function Pagination({
           size="icon"
           onClick={handleFirst}
           disabled={currentPage === 1}
-          aria-label="Première page"
+          aria-label={t("firstPage")}
         >
           <ChevronsLeft className="h-4 w-4" />
         </Button>
@@ -121,7 +124,7 @@ export function Pagination({
         size="icon"
         onClick={handlePrevious}
         disabled={currentPage === 1}
-        aria-label="Page précédente"
+        aria-label={t("previousPage")}
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
@@ -149,10 +152,10 @@ export function Pagination({
               size="sm"
               onClick={() => onPageChange(pageNumber)}
               className={cn(
-                "min-w-[2.5rem]",
+                "min-w-10",
                 isActive && "pointer-events-none"
               )}
-              aria-label={`Page ${pageNumber}`}
+              aria-label={`${t("page")} ${pageNumber}`}
               aria-current={isActive ? "page" : undefined}
             >
               {pageNumber}
@@ -166,7 +169,7 @@ export function Pagination({
         size="icon"
         onClick={handleNext}
         disabled={currentPage === totalPages}
-        aria-label="Page suivante"
+        aria-label={t("nextPage")}
       >
         <ChevronRight className="h-4 w-4" />
       </Button>
@@ -176,7 +179,7 @@ export function Pagination({
           size="icon"
           onClick={handleLast}
           disabled={currentPage === totalPages}
-          aria-label="Dernière page"
+          aria-label={t("lastPage")}
         >
           <ChevronsRight className="h-4 w-4" />
         </Button>

@@ -6,6 +6,7 @@ export { useSort } from "./useSort";
 export { useSearch } from "./useSearch";
 export { usePostsFilters } from "./usePostsFilters";
 export { usePostsWithFilters } from "./usePostsWithFilters";
+export { useTranslations } from "./useTranslations";
 
 export type {
   FilterState,

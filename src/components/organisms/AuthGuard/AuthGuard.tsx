@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/store/authStore";
 import { Loader2 } from "lucide-react";
 
@@ -13,6 +14,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
   const [isChecking, setIsChecking] = useState(true);
   const { isAuthenticated, checkAuth } = useAuthStore();
   const router = useRouter();
+  const t = useTranslations("common");
 
   useEffect(() => {
     const verifyAuth = async () => {
@@ -32,7 +34,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
       <div className="flex h-screen items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-sm text-muted-foreground">Vérification...</p>
+          <p className="text-sm text-muted-foreground">{t("loading")}</p>
         </div>
       </div>
     );

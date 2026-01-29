@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import {
   User,
@@ -10,31 +10,32 @@ import {
   Link as LinkIcon,
 } from "lucide-react";
 
-const profileNavigation = [
-  {
-    name: "Vue d'ensemble",
-    href: "/dashboard/profile",
-    icon: User,
-  },
-  {
-    name: "Préférences",
-    href: "/dashboard/profile/preferences",
-    icon: Settings,
-  },
-  {
-    name: "Style d'écriture",
-    href: "/dashboard/profile/writing-style",
-    icon: PenTool,
-  },
-  {
-    name: "Intégrations",
-    href: "/dashboard/profile/integrations",
-    icon: LinkIcon,
-  },
-];
-
 export function ProfileSidebar() {
+  const t = useTranslations("profile");
   const pathname = usePathname();
+
+  const profileNavigation = [
+    {
+      name: t("overview"),
+      href: "/dashboard/profile",
+      icon: User,
+    },
+    {
+      name: t("preferences.title"),
+      href: "/dashboard/profile/preferences",
+      icon: Settings,
+    },
+    {
+      name: t("writingStyle.title"),
+      href: "/dashboard/profile/writing-style",
+      icon: PenTool,
+    },
+    {
+      name: t("integrations.title"),
+      href: "/dashboard/profile/integrations",
+      icon: LinkIcon,
+    },
+  ];
 
   return (
     <aside className="w-64 border-r bg-muted/40">

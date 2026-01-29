@@ -1,4 +1,377 @@
-[00:00:01.045] Server  LOG     ✓ Ready in 739ms
-[00:00:01.691] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:37.509] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:39.293] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:02.047] Server  LOG     ✓ Ready in 1708ms
+[00:00:04.781] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.078] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.702] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:35.884] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:46.475] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:12.011] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:14.224] Server  LOG     ✓ Compiled in 35ms
+[00:02:50.302] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:07.381] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:07.506] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/fr" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+-                         lang="fr"
+                        >
+                          ...
+                            <SegmentViewNode type="layout" pagePath="[locale]/l...">
+                              <SegmentTrieNode>
+                              <script>
+                              <script>
+                              <LocaleLayout>
+                                <html lang="fr">
+                                  <body
+-                                   className="inter_5901b7c6-module__ec5Qua__variable font-sans antialiased"
+                                  >
+                  ...
+
+[00:03:25.644] Browser ERROR   In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <html> body  
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:"...", ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/en/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html>
+>                         <body className="inter_5901b7c6-module__ec5Qua__variable font-sans antialiased">
+                            ...
+                              <SegmentViewNode type="layout" pagePath="[locale]/l...">
+                                <SegmentTrieNode>
+                                <script>
+                                <script>
+                                <LocaleLayout>
+>                                 <html lang="en">
+                  ...
+
+[00:03:25.645] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. body <html>
+[00:03:28.343] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:31.051] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:32.620] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:32.772] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/fr/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+-                         lang="fr"
+                        >
+                          ...
+                            <SegmentViewNode type="layout" pagePath="[locale]/l...">
+                              <SegmentTrieNode>
+                              <script>
+                              <script>
+                              <LocaleLayout>
+                                <html lang="fr">
+                                  <body
+-                                   className="inter_5901b7c6-module__ec5Qua__variable font-sans antialiased"
+                                  >
+                  ...
+
+[00:03:38.441] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:38.577] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/fr/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+-                         lang="fr"
+                        >
+                          ...
+                            <SegmentViewNode type="layout" pagePath="[locale]/l...">
+                              <SegmentTrieNode>
+                              <script>
+                              <script>
+                              <LocaleLayout>
+                                <html lang="fr">
+                                  <body
+-                                   className="inter_5901b7c6-module__ec5Qua__variable font-sans antialiased"
+                                  >
+                  ...
+
+[00:04:00.577] Browser ERROR   In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <html> body  
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:"...", ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/en/dashbo..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html>
+>                         <body className="inter_5901b7c6-module__ec5Qua__variable font-sans antialiased">
+                            ...
+                              <SegmentViewNode type="layout" pagePath="[locale]/l...">
+                                <SegmentTrieNode>
+                                <script>
+                                <script>
+                                <LocaleLayout>
+>                                 <html lang="en">
+                  ...
+
+[00:04:00.577] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. body <html>
+[00:05:02.628] Server  LOG     ✓ Compiled in 22ms
+[00:05:15.448] Server  LOG     ✓ Compiled in 24ms
+[00:05:35.703] Server  LOG     ✓ Compiled in 252ms
+[00:05:36.002] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:37.041] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/fr/dashbo..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+-                         lang="fr"
+                        >
+                          ...
+                            <SegmentViewNode type="layout" pagePath="[locale]/l...">
+                              <SegmentTrieNode>
+                              <script>
+                              <script>
+                              <LocaleLayout>
+                                <html lang="fr">
+                                  <body
+-                                   className="inter_5901b7c6-module__ec5Qua__variable font-sans antialiased"
+                                  >
+                  ...
+
+[00:05:38.968] Server  LOG     ✓ Compiled in 23ms
+[00:05:55.139] Server  LOG     ✓ Compiled in 61ms
+[00:06:10.942] Server  ERROR   
+Error parsing `/:nextData(_next/data/[^/]{1,})?/((?!api|_next|_vercel|.*\..*|favicon|robots|sitemap|.*\.(ico|png|jpg|jpeg|svg|gif|webp|woff|woff2|ttf|eot)).*){(\\.json)}?` https://nextjs.org/docs/messages/invalid-route-source
+Reason: Capturing groups are not allowed at 89
+
+  /:nextData(_next/data/[^/]{1,})?/((?!api|_next|_vercel|.*\..*|favicon|robots|sitemap|.*\.(ico|png|jpg|jpeg|svg|gif|webp|woff|woff2|ttf|eot)).*){(\\.json)}?
+                                                                                           ^
+
+[00:06:10.992] Server  LOG     ✓ Compiled in 22ms
+[00:06:32.226] Browser ERROR   In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <html> body  
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:"...", ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/en/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html>
+>                         <body className="inter_5901b7c6-module__ec5Qua__variable font-sans antialiased">
+                            ...
+                              <SegmentViewNode type="layout" pagePath="[locale]/l...">
+                                <SegmentTrieNode>
+                                <script>
+                                <script>
+                                <LocaleLayout>
+>                                 <html lang="en">
+                  ...
+
+[00:06:32.226] Browser ERROR   <%s> cannot contain a nested %s.
+See this log for the ancestor stack trace. body <html>
+[00:07:54.112] Server  LOG     ✓ Compiled in 405ms
+[00:07:54.722] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:02.884] Server  LOG     ✓ Compiled in 555ms
+[00:08:03.331] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:57.481] Server  LOG     ✓ Compiled in 59ms
+[00:09:58.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:09:58.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:09:58.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:09:58.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:09:58.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:09:58.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:00.596] Server  LOG     ✓ Compiled in 26ms
+[00:10:03.947] Server  LOG     ✓ Compiled in 47ms
+[00:10:04.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:04.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:04.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:04.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:04.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:04.040] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:07.054] Server  LOG     ✓ Compiled in 22ms
+[00:10:10.632] Server  LOG     ✓ Compiled in 42ms
+[00:10:11.040] Browser ERROR   {"code":"MISSING_MESSAGE","originalMessage":"Could not resolve `common.menu` in messages for locale `fr`."}
+[00:10:11.040] Browser ERROR   {"code":"MISSING_MESSAGE","originalMessage":"Could not resolve `common.menu` in messages for locale `fr`."}
+[00:10:11.040] Browser ERROR   {"code":"MISSING_MESSAGE","originalMessage":"Could not resolve `common.menu` in messages for locale `fr`."}
+[00:10:11.040] Browser ERROR   {"code":"MISSING_MESSAGE","originalMessage":"Could not resolve `common.userMenu` in messages for locale `fr`."}
+[00:10:11.040] Browser ERROR   {"code":"MISSING_MESSAGE","originalMessage":"Could not resolve `common.menu` in messages for locale `fr`."}
+[00:10:11.040] Browser ERROR   {"code":"MISSING_MESSAGE","originalMessage":"Could not resolve `common.userMenu` in messages for locale `fr`."}
+[00:10:15.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:15.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:15.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:15.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:15.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:15.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:18.044] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:18.044] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:18.044] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:18.044] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:18.044] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:18.044] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:22.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:22.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:22.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:22.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:22.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:22.041] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:25.694] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:26.045] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:26.046] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:26.046] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:26.046] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:26.046] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:10:26.046] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:47.447] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:47.447] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:47.447] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:47.447] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:47.447] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:47.447] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:49.162] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:49.162] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:49.162] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:49.162] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:49.162] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:49.162] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:53.050] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:53.050] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:53.050] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:53.050] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.preferences` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:53.050] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.writingStyle` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:11:53.050] Browser ERROR   {"code":"INSUFFICIENT_PATH","originalMessage":"Message at `profile.integrations` resolved to `object`, but only strings are supported. Use a `.` to retrieve nested messages. See https://next-intl.dev/docs/usage/translations#structuring-messages"}
+[00:14:01.791] Server  LOG     ✓ Compiled in 26ms
+[00:15:13.215] Server  LOG     ✓ Compiled in 30ms
+[00:15:16.807] Server  LOG     ✓ Compiled in 44ms
+[00:15:20.259] Server  LOG     ✓ Compiled in 24ms
+[00:15:26.879] Server  LOG     ✓ Compiled in 28ms
+[00:16:04.941] Server  LOG     ✓ Compiled in 24ms
+[00:16:10.214] Server  LOG     ✓ Compiled in 39ms
+[00:16:25.592] Server  LOG     ✓ Compiled in 28ms
+[00:16:30.139] Server  LOG     ✓ Compiled in 35ms
+[00:16:42.264] Server  LOG     ✓ Compiled in 31ms
+[00:16:53.875] Server  LOG     ✓ Compiled in 28ms

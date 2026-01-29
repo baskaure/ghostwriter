@@ -1,0 +1,177 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Éditer",
+    "copy": "Copier",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "all": "Tous",
+    "none": "Aucun",
+    "yes": "Oui",
+    "no": "Non",
+    "menu": "Menu",
+    "userMenu": "Menu utilisateur",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
+    "notConnected": "Non connecté",
+    "errorOccurred": "Une erreur est survenue",
+    "generationError": "Une erreur est survenue lors de la génération",
+    "postSaved": "Post sauvegardé dans votre bibliothèque !",
+    "contentCopied": "Contenu copié dans le presse-papier !",
+    "enterPrompt": "Veuillez entrer un sujet ou une idée",
+    "firstPage": "Première page",
+    "previousPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "lastPage": "Dernière page",
+    "page": "Page"
+  },
+  "auth": {
+    "login": {
+      "title": "Connexion",
+      "email": "Email",
+      "password": "Mot de passe",
+      "forgotPassword": "Mot de passe oublié ?",
+      "noAccount": "Pas encore de compte ?",
+      "signUp": "S'inscrire",
+      "signIn": "Se connecter",
+      "signInWithGoogle": "Continuer avec Google",
+      "signInWithLinkedIn": "Continuer avec LinkedIn"
+    },
+    "register": {
+      "title": "Inscription",
+      "name": "Nom",
+      "email": "Email",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "hasAccount": "Déjà un compte ?",
+      "signIn": "Se connecter",
+      "signUp": "S'inscrire"
+    },
+    "logout": "Déconnexion"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "overview": "Vue d'ensemble",
+    "generate": "Générer un post",
+    "contents": "Contenus",
+    "planning": "Planning",
+    "analytics": "Analytics",
+    "profile": "Profil",
+    "settings": "Paramètres"
+  },
+  "posts": {
+    "title": "Posts",
+    "newPost": "Nouveau post",
+    "createPost": "Créer un post",
+    "editPost": "Éditer le post",
+    "deletePost": "Supprimer le post",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce post ?",
+    "copyContent": "Contenu copié !",
+    "noPosts": "Aucun post pour le moment. Créez votre premier post !",
+    "status": {
+      "draft": "Brouillon",
+      "scheduled": "Planifié",
+      "published": "Publié",
+      "archived": "Archivé",
+      "all": "Tous les statuts"
+    },
+    "platform": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter/X",
+      "all": "Toutes les plateformes"
+    },
+    "type": {
+      "conseil": "Conseil",
+      "story": "Histoire",
+      "question": "Question",
+      "annonce": "Annonce",
+      "thread": "Thread",
+      "all": "Tous les types"
+    },
+    "searchPlaceholder": "Rechercher un post...",
+    "generate": {
+      "title": "Générer un post",
+      "description": "Décrivez votre idée et l'IA génère du contenu authentique dans votre style",
+      "prompt": "De quoi veux-tu parler ?",
+      "platform": "Plateforme",
+      "type": "Type de post",
+      "generate": "Générer",
+      "generating": "Génération en cours...",
+      "variations": "Variations générées",
+      "noVariations": "Aucune variation générée pour le moment",
+      "yourIdea": "Votre idée",
+      "whatToTalkAbout": "De quoi voulez-vous parler aujourd'hui ?",
+      "topicOrIdea": "Sujet ou idée",
+      "placeholder": "Ex: Mon expérience avec le remote work et comment j'ai amélioré ma productivité...",
+      "socialNetworks": "Réseaux sociaux",
+      "postType": "Type de post"
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "overview": "Vue d'ensemble",
+    "account": "Compte",
+    "name": "Nom",
+    "email": "Email",
+    "plan": "Plan",
+    "createdAt": "Compte créé le",
+    "lastLogin": "Dernière connexion",
+    "memberSince": "Membre depuis",
+    "loadingInfo": "Chargement des informations...",
+    "noUserInfo": "Aucune information utilisateur disponible.",
+    "generalInfo": "Informations générales de votre compte",
+    "noStylePreference": "Aucune préférence de style définie pour le moment.",
+    "toneDescription": "1 = très formel, 10 = très casual",
+    "preferences": {
+      "title": "Préférences",
+      "language": "Langue",
+      "timezone": "Fuseau horaire",
+      "notifications": "Notifications",
+      "emailNotifications": "Notifications par email",
+      "pushNotifications": "Notifications push",
+      "weeklyReport": "Rapport hebdomadaire",
+      "saveChanges": "Enregistrer les modifications"
+    },
+    "writingStyle": {
+      "title": "Style d'écriture",
+      "tone": "Ton de voix",
+      "toneDescription": "1 = très formel, 10 = très casual",
+      "length": "Longueur préférée",
+      "emoji": "Fréquence des emojis",
+      "hashtags": "Style de hashtags",
+      "saveStyle": "Enregistrer le style"
+    },
+    "integrations": {
+      "title": "Intégrations",
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter/X",
+      "connected": "Connecté",
+      "notConnected": "Non connecté",
+      "connect": "Connecter",
+      "disconnect": "Déconnecter",
+      "account": "Compte",
+      "connectedAt": "Connecté le"
+    }
+  },
+  "calendar": {
+    "title": "Calendrier éditorial",
+    "today": "Aujourd'hui",
+    "upcoming": "Posts à venir",
+    "noEvents": "Aucun événement prévu"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "impressions": "Impressions",
+    "likes": "Likes",
+    "comments": "Commentaires",
+    "shares": "Partages",
+    "exportReport": "Exporter le rapport"
+  }
+}

@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,11 +12,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { User, Settings, LogOut } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/routing";
+import { LanguageSwitcher } from "@/components/molecules/LanguageSwitcher/LanguageSwitcher";
+import { Link } from "@/i18n/routing";
 
 export function DashboardHeader() {
   const [mounted, setMounted] = useState(false);
   const { user, logout } = useAuthStore();
   const router = useRouter();
+  const t = useTranslations("auth");
+  const tProfile = useTranslations("profile");
 
   useEffect(() => {
     setMounted(true);
@@ -29,18 +33,21 @@ export function DashboardHeader() {
     router.push("/login");
   };
 
+  const tCommon = useTranslations("common");
+
   return (
     <header className="flex h-16 items-center justify-between border-b bg-background px-4 md:px-6">
       <div className="flex items-center gap-4">
-        <h1 className="text-lg font-semibold md:hidden">Menu</h1>
+        <h1 className="text-lg font-semibold md:hidden">{tCommon("menu")}</h1>
       </div>
       <div className="flex items-center gap-4">
+        <LanguageSwitcher />
         {mounted ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full">
                 <User className="h-5 w-5" />
-                <span className="sr-only">Ouvrir le menu utilisateur</span>
+                <span className="sr-only">{tCommon("userMenu")}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
@@ -56,13 +63,13 @@ export function DashboardHeader() {
               <DropdownMenuItem asChild>
                 <Link href="/dashboard/profile" className="flex items-center">
                   <Settings className="mr-2 h-4 w-4" />
-                  Profil
+                  {tProfile("title")}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout}>
                 <LogOut className="mr-2 h-4 w-4" />
-                <span>Déconnexion</span>
+                <span>{t("logout")}</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
