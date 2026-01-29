@@ -10,7 +10,7 @@ npm install
 npm run dev
 ```
 
-Ouvre [http://localhost:3000] dans ton navigateur.
+Ouvre [http://localhost:3000/fr] dans ton navigateur (le /fr ou /en est important sinon on tombe sur un 404).
 
 ### Scripts disponibles
 
