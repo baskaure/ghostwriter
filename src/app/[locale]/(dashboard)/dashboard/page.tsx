@@ -1,66 +1,128 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, FileText, Calendar, TrendingUp } from "lucide-react";
+import { fetchDashboardStats, formatTrendChange } from "@/data/stats";
+import { getMockPosts } from "@/data/posts";
+import { useTranslations } from "next-intl";
+import type { DashboardStats } from "@/data/stats";
+import type { Post } from "@/types/post";
+import { formatDistanceToNow } from "date-fns";
+import { fr, enUS } from "date-fns/locale";
+import { useLocale } from "next-intl";
 
 export default function DashboardPage() {
+  const t = useTranslations("dashboard");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
+  const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [topPosts, setTopPosts] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      setIsLoading(true);
+      try {
+        const [statsData, postsData] = await Promise.all([
+          fetchDashboardStats(),
+          getMockPosts(),
+        ]);
+        setStats(statsData);
+        const sortedPosts = postsData
+          .filter((p) => p.status === "published" && p.engagement)
+          .sort((a, b) => {
+            const aEngagement = (a.engagement?.likes || 0) + (a.engagement?.comments || 0);
+            const bEngagement = (b.engagement?.likes || 0) + (b.engagement?.comments || 0);
+            return bEngagement - aEngagement;
+          })
+          .slice(0, 3);
+        setTopPosts(sortedPosts);
+      } catch (error) {
+        console.error("Error loading dashboard data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  if (isLoading || !stats) {
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">{t("title")}</h1>
+          <p className="text-muted-foreground">{t("description")}</p>
+        </div>
+        <div className="flex items-center justify-center py-12">
+          <p className="text-muted-foreground">{tCommon("loading")}</p>
+        </div>
+      </div>
+    );
+  }
+
+  const dateLocale = locale === "fr" ? fr : enUS;
+
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-        <p className="text-muted-foreground">
-          Vue d'ensemble de votre activité
-        </p>
+        <h1 className="text-3xl font-bold tracking-tight">{t("title")}</h1>
+        <p className="text-muted-foreground">{t("description")}</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Posts générés
+              {t("stats.postsGenerated")}
             </CardTitle>
             <FileText className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">24</div>
+            <div className="text-2xl font-bold">{stats.postsGenerated}</div>
             <p className="text-xs text-muted-foreground">
-              +12% par rapport au mois dernier
+              {formatTrendChange(stats.trends.postsGenerated.change)} {t("stats.comparedToLastMonth")}
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Posts planifiés</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("stats.postsScheduled")}</CardTitle>
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">8</div>
+            <div className="text-2xl font-bold">{stats.postsScheduled}</div>
             <p className="text-xs text-muted-foreground">
-              Prochain post dans 2 jours
+              {t("stats.nextPostIn")} 2 {t("stats.days")}
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Taux d'engagement
+              {t("stats.engagementRate")}
             </CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">4.2%</div>
+            <div className="text-2xl font-bold">{stats.engagementRate}%</div>
             <p className="text-xs text-muted-foreground">
-              +0.8% par rapport au mois dernier
+              {formatTrendChange(stats.trends.engagementRate.change)} {t("stats.comparedToLastMonth")}
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Reach total</CardTitle>
+            <CardTitle className="text-sm font-medium">{t("stats.totalReach")}</CardTitle>
             <BarChart3 className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">12.5K</div>
+            <div className="text-2xl font-bold">
+              {(stats.totalReach / 1000).toFixed(1)}K
+            </div>
             <p className="text-xs text-muted-foreground">
-              +2.1K ce mois-ci
+              {formatTrendChange(stats.trends.totalReach.change / 100)}K {t("stats.thisMonth")}
             </p>
           </CardContent>
         </Card>
@@ -69,31 +131,42 @@ export default function DashboardPage() {
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Activité récente</CardTitle>
+            <CardTitle>{t("recentActivity")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium">Nouveau post généré</p>
+                  <p className="text-sm font-medium">{t("newPostGenerated")}</p>
                   <p className="text-xs text-muted-foreground">
-                    Il y a 2 heures
+                    {formatDistanceToNow(new Date(Date.now() - 2 * 60 * 60 * 1000), {
+                      addSuffix: true,
+                      locale: dateLocale,
+                    })}
                   </p>
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium">Post publié sur LinkedIn</p>
+                  <p className="text-sm font-medium">
+                    {t("postPublished")} LinkedIn
+                  </p>
                   <p className="text-xs text-muted-foreground">
-                    Il y a 5 heures
+                    {formatDistanceToNow(new Date(Date.now() - 5 * 60 * 60 * 1000), {
+                      addSuffix: true,
+                      locale: dateLocale,
+                    })}
                   </p>
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium">Post planifié</p>
+                  <p className="text-sm font-medium">{t("postScheduled")}</p>
                   <p className="text-xs text-muted-foreground">
-                    Il y a 1 jour
+                    {formatDistanceToNow(new Date(Date.now() - 24 * 60 * 60 * 1000), {
+                      addSuffix: true,
+                      locale: dateLocale,
+                    })}
                   </p>
                 </div>
               </div>
@@ -102,34 +175,26 @@ export default function DashboardPage() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Top posts</CardTitle>
+            <CardTitle>{t("topPosts")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div>
-                <p className="text-sm font-medium">
-                  "5 conseils pour améliorer votre productivité..."
+              {topPosts.length > 0 ? (
+                topPosts.map((post) => (
+                  <div key={post.id}>
+                    <p className="text-sm font-medium line-clamp-2">
+                      {post.content.substring(0, 60)}...
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {post.engagement?.likes || 0} likes • {post.engagement?.comments || 0} commentaires
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  {tCommon("noUserInformation")}
                 </p>
-                <p className="text-xs text-muted-foreground">
-                  245 likes • 32 commentaires
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-medium">
-                  "Pourquoi j'ai quitté mon job pour devenir freelance..."
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  189 likes • 28 commentaires
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-medium">
-                  "Les 3 erreurs à éviter en marketing digital..."
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  156 likes • 19 commentaires
-                </p>
-              </div>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -137,4 +202,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-

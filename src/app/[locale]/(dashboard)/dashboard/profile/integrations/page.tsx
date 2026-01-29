@@ -1,24 +1,32 @@
 "use client";
 
 import { useProfile } from "@/hooks/useProfile";
+import { useProfileStore } from "@/store/profileStore";
+import { toggleSocialAccount } from "@/data/users";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, X, Link2 } from "lucide-react";
 import { format } from "date-fns";
-import { fr } from "date-fns/locale";
+import { fr, enUS } from "date-fns/locale";
+import { toast } from "sonner";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function IntegrationsPage() {
+  const t = useTranslations("profile.integrations");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
   const { profile, isLoading } = useProfile();
+  const { setProfile } = useProfileStore();
+
+  const dateLocale = locale === "fr" ? fr : enUS;
 
   if (isLoading && !profile) {
     return (
       <div className="space-y-6">
         <div>
-          <h2 className="text-xl font-semibold">Intégrations</h2>
-          <p className="text-sm text-muted-foreground">
-            Chargement des intégrations...
-          </p>
+          <h2 className="text-xl font-semibold">{t("title")}</h2>
+          <p className="text-sm text-muted-foreground">{t("loading")}</p>
         </div>
       </div>
     );
@@ -28,10 +36,8 @@ export default function IntegrationsPage() {
     return (
       <div className="space-y-6">
         <div>
-          <h2 className="text-xl font-semibold">Intégrations</h2>
-          <p className="text-sm text-muted-foreground">
-            Aucune information disponible.
-          </p>
+          <h2 className="text-xl font-semibold">{t("title")}</h2>
+          <p className="text-sm text-muted-foreground">{t("noInfo")}</p>
         </div>
       </div>
     );
@@ -40,13 +46,24 @@ export default function IntegrationsPage() {
   const linkedin = profile.connectedAccounts.linkedin;
   const twitter = profile.connectedAccounts.twitter;
 
+  const handleToggle = async (platform: "linkedin" | "twitter", connected: boolean) => {
+    if (!profile) return;
+
+    try {
+      const updatedUser = await toggleSocialAccount(profile.id, platform, connected);
+      setProfile(updatedUser);
+      toast.success(connected ? t("connectedSuccess") : t("disconnectedSuccess"));
+    } catch (error) {
+      console.error(`Error toggling ${platform}:`, error);
+      toast.error(tCommon("errorOccurred"));
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold">Intégrations</h2>
-        <p className="text-sm text-muted-foreground">
-          Connectez vos comptes sociaux pour publier directement depuis Ghostwriter Pro
-        </p>
+        <h2 className="text-xl font-semibold">{t("title")}</h2>
+        <p className="text-sm text-muted-foreground">{t("description")}</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -56,21 +73,19 @@ export default function IntegrationsPage() {
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <Link2 className="h-5 w-5" />
-                  LinkedIn
+                  {t("linkedin")}
                 </CardTitle>
-                <CardDescription>
-                  Publiez vos posts directement sur LinkedIn
-                </CardDescription>
+                <CardDescription>{t("publishDirectly")} {t("linkedin")}</CardDescription>
               </div>
               {linkedin.connected ? (
                 <Badge variant="outline" className="gap-1">
                   <Check className="h-3 w-3" />
-                  Connecté
+                  {t("connected")}
                 </Badge>
               ) : (
                 <Badge variant="secondary" className="gap-1">
                   <X className="h-3 w-3" />
-                  Non connecté
+                  {t("notConnected")}
                 </Badge>
               )}
             </div>
@@ -79,25 +94,31 @@ export default function IntegrationsPage() {
             {linkedin.connected ? (
               <>
                 <div className="space-y-1 text-sm">
-                  <p className="text-muted-foreground">Compte</p>
+                  <p className="text-muted-foreground">{t("account")}</p>
                   <p className="font-medium">{linkedin.username}</p>
                 </div>
                 {linkedin.connectedAt && (
                   <div className="space-y-1 text-sm">
-                    <p className="text-muted-foreground">Connecté le</p>
+                    <p className="text-muted-foreground">{t("connectedAt")}</p>
                     <p className="font-medium">
                       {format(new Date(linkedin.connectedAt), "d MMMM yyyy", {
-                        locale: fr,
+                        locale: dateLocale,
                       })}
                     </p>
                   </div>
                 )}
-                <Button variant="outline" className="w-full">
-                  Déconnecter
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => handleToggle("linkedin", false)}
+                >
+                  {t("disconnect")}
                 </Button>
               </>
             ) : (
-              <Button className="w-full">Connecter LinkedIn</Button>
+              <Button className="w-full" onClick={() => handleToggle("linkedin", true)}>
+                {t("connect")} {t("linkedin")}
+              </Button>
             )}
           </CardContent>
         </Card>
@@ -108,21 +129,19 @@ export default function IntegrationsPage() {
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <Link2 className="h-5 w-5" />
-                  Twitter/X
+                  {t("twitter")}
                 </CardTitle>
-                <CardDescription>
-                  Publiez vos posts directement sur Twitter/X
-                </CardDescription>
+                <CardDescription>{t("publishDirectly")} {t("twitter")}</CardDescription>
               </div>
               {twitter.connected ? (
                 <Badge variant="outline" className="gap-1">
                   <Check className="h-3 w-3" />
-                  Connecté
+                  {t("connected")}
                 </Badge>
               ) : (
                 <Badge variant="secondary" className="gap-1">
                   <X className="h-3 w-3" />
-                  Non connecté
+                  {t("notConnected")}
                 </Badge>
               )}
             </div>
@@ -131,25 +150,31 @@ export default function IntegrationsPage() {
             {twitter.connected ? (
               <>
                 <div className="space-y-1 text-sm">
-                  <p className="text-muted-foreground">Compte</p>
+                  <p className="text-muted-foreground">{t("account")}</p>
                   <p className="font-medium">{twitter.username}</p>
                 </div>
                 {twitter.connectedAt && (
                   <div className="space-y-1 text-sm">
-                    <p className="text-muted-foreground">Connecté le</p>
+                    <p className="text-muted-foreground">{t("connectedAt")}</p>
                     <p className="font-medium">
                       {format(new Date(twitter.connectedAt), "d MMMM yyyy", {
-                        locale: fr,
+                        locale: dateLocale,
                       })}
                     </p>
                   </div>
                 )}
-                <Button variant="outline" className="w-full">
-                  Déconnecter
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => handleToggle("twitter", false)}
+                >
+                  {t("disconnect")}
                 </Button>
               </>
             ) : (
-              <Button className="w-full">Connecter Twitter/X</Button>
+              <Button className="w-full" onClick={() => handleToggle("twitter", true)}>
+                {t("connect")} {t("twitter")}
+              </Button>
             )}
           </CardContent>
         </Card>

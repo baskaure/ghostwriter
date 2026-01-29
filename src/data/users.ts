@@ -112,3 +112,17 @@ export async function toggleSocialAccount(
   
   return updatedUser;
 }
+
+export async function updateUserStyleProfile(
+  userId: string,
+  styleProfile: Partial<User["styleProfile"]>
+): Promise<User> {
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  return {
+    ...mockCurrentUser,
+    styleProfile: {
+      ...mockCurrentUser.styleProfile,
+      ...styleProfile,
+    } as User["styleProfile"],
+  };
+}

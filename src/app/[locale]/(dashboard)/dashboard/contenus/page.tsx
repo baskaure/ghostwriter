@@ -1,6 +1,7 @@
 "use client";
 
 import { Link as I18nLink } from "@/i18n/routing";
+import { toast } from "sonner";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -29,16 +30,17 @@ export default function ContenusPage() {
   const handleDelete = (post: Post) => {
     if (confirm(t("deleteConfirm"))) {
       deletePost(post.id);
+      toast.success("Post supprimé");
     }
   };
 
   const handleEdit = (post: Post) => {
-    console.log("Éditer le post:", post);
+    toast.info("Fonctionnalité d'édition à venir");
   };
 
   const handleCopy = (post: Post) => {
     navigator.clipboard.writeText(post.content);
-    alert(t("copyContent"));
+    toast.success(t("copyContent"));
   };
 
   const handleSchedule = (post: Post) => {
@@ -46,13 +48,13 @@ export default function ContenusPage() {
   };
 
   const postCount = posts.length;
-  const postText = postCount > 1 ? "posts" : "post";
+  const postText = postCount > 1 ? t("postsPlural") : t("postSingular");
 
   return (
     <div className="space-y-6">
       <PageHeader
         title={t("title")}
-        description={`${t("title")} (${postCount} ${postText})`}
+        description={`${t("description")} (${postCount} ${postText})`}
         action={
         <Link href="/dashboard/generate">
           <Button>

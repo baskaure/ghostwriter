@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/organisms/PageHeader/PageHeader";
 import { GenerateForm } from "@/components/organisms/GenerateForm/GenerateForm";
 import { VariationsList } from "@/components/organisms/VariationsList/VariationsList";
@@ -40,7 +41,7 @@ export default function GeneratePage() {
       setGeneratedVariations(variations);
     } catch (error) {
       console.error("Erreur lors de la génération:", error);
-      alert(tCommon("generationError"));
+      toast.error(tCommon("generationError"));
     } finally {
       setLoading(false);
     }
@@ -62,15 +63,12 @@ export default function GeneratePage() {
 
     addPost(newPost);
     setSelectedVariation(variationId);
-    
-    setTimeout(() => {
-      alert(tCommon("postSaved"));
-    }, 100);
+    toast.success(tCommon("postSaved"));
   };
 
   const handleCopy = (content: string) => {
     navigator.clipboard.writeText(content);
-    alert(tCommon("contentCopied"));
+    toast.success(tCommon("contentCopied"));
   };
 
   return (

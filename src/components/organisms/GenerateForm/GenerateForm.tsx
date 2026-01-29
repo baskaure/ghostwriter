@@ -1,7 +1,8 @@
- "use client";
+"use client";
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { toast } from "sonner";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,7 +26,7 @@ export function GenerateForm({ isLoading, onSubmit }: GenerateFormProps) {
 
   const handleSubmit = () => {
     if (!prompt.trim()) {
-      alert(tCommon("enterPrompt"));
+      toast.error(tCommon("enterPrompt"));
       return;
     }
     onSubmit({ prompt, platform: selectedPlatform, type: selectedType });
@@ -75,7 +76,7 @@ export function GenerateForm({ isLoading, onSubmit }: GenerateFormProps) {
           ) : (
             <>
               <Sparkles className="mr-2 h-5 w-5" />
-              {t("generate")} 3 {t("variations").toLowerCase()}
+              {t("generateVariations")}
             </>
           )}
         </Button>

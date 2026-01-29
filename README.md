@@ -141,16 +141,48 @@ const form = useForm({
 });
 ```
 
-### 6. **Data Fetching**
+### 6. **Système de notifications (Toasts)**
+
+Le projet utilise **sonner** pour afficher des notifications élégantes à l'utilisateur.
+
+**Configuration :**
+- Toaster configuré dans le layout principal (`[locale]/layout.tsx`)
+- Position : `top-right`
+- Support des types : `success`, `error`, `info`, `warning`
+
+**Utilisation :**
+```typescript
+import { toast } from "sonner";
+
+// Succès
+toast.success("Post sauvegardé !");
+
+// Erreur
+toast.error("Une erreur est survenue");
+
+// Info
+toast.info("Fonctionnalité à venir");
+```
+
+**Remplacement des `alert()` :**
+Tous les `alert()` natifs ont été remplacés par des toasts pour une meilleure UX.
+
+### 7. **Data Fetching**
 
 Le projet utilise actuellement des **données mockées** dans `/src/data/` pour simuler une API.
 
 **Structure actuelle :**
-- `data/auth.ts` : Authentification mockée
-- `data/users.ts` : Données utilisateurs
-- `data/posts.ts` : Posts mockés
-- `data/analytics.ts` : Analytics mockés
-- `data/calendar.ts` : Événements calendrier
+- `data/auth.ts` : Authentification mockée (login, register, logout)
+- `data/users.ts` : Données utilisateurs avec fonctions de mise à jour
+- `data/posts.ts` : Posts mockés avec filtres
+- `data/analytics.ts` : Analytics mockés (7d, 30d, 90d)
+- `data/calendar.ts` : Événements calendrier avec CRUD
+- `data/stats.ts` : Statistiques dashboard avec tendances
+
+**Fonctions de mise à jour disponibles :**
+- `updateUserPreferences()` : Mise à jour des préférences utilisateur
+- `updateUserStyleProfile()` : Mise à jour du style d'écriture
+- `toggleSocialAccount()` : Connexion/déconnexion des comptes sociaux
 
 **Migration vers API :**
 Quand tu auras une vraie API, remplace simplement les fonctions dans `/data/` par de vrais appels `fetch()` ou utilise une bibliothèque comme **React Query** pour le cache et la synchronisation.
@@ -177,23 +209,29 @@ export async function getCurrentUser(): Promise<User> {
 - **TypeScript** - Typage statique
 - **Tailwind CSS** - Styling
 - **shadcn/ui** - Composants UI
-- **Zustand** - State management
+- **Zustand** - State management avec persistance
 - **React Hook Form + Zod** - Validation de formulaires
-- **next-intl** - Internationalisation
-- **date-fns** - Manipulation de dates
+- **next-intl** - Internationalisation (FR/EN)
+- **date-fns** - Manipulation de dates avec locales
 - **lucide-react** - Icônes
+- **sonner** - Système de toasts/notifications
 
 ## Fonctionnalités implémentées
 
-- Authentification (login/register) avec validation
-- Dashboard avec navigation
-- Génération de contenu IA (mockée)
-- Bibliothèque de posts avec filtres et recherche
-- Calendrier éditorial interactif
-- Profil utilisateur avec sous-pages
-- Internationalisation (FR/EN)
-- Stores avec persistance localStorage
-- Composables réutilisables (filtres, pagination, tri)
+- Authentification (login/register) avec validation React Hook Form + Zod
+- Dashboard avec statistiques réelles connectées aux données mockées
+- Génération de contenu IA (mockée) avec variations multiples
+- Bibliothèque de posts avec filtres, recherche et tri
+- Calendrier éditorial interactif avec navigation mensuelle
+- Profil utilisateur avec sous-pages (overview, préférences, style d'écriture, intégrations)
+- Internationalisation complète (FR/EN) avec next-intl
+- Stores avec persistance localStorage et cache intelligent
+- Composables réutilisables (filtres, pagination, tri, recherche)
+- Système de toasts (sonner) pour tous les feedbacks utilisateur
+- Sauvegarde fonctionnelle des préférences utilisateur
+- Sauvegarde du style d'écriture personnalisé
+- Gestion des intégrations sociales (connexion/déconnexion)
+- Analytics avec données mockées et métriques
 
 ## Comptes de test
 
@@ -203,9 +241,12 @@ Les comptes de test sont disponibles sur la page de connexion :
 
 ## Notes de développement
 
-- Les données sont actuellement mockées dans `/src/data/`
-- Les stores utilisent `localStorage` pour la persistance
-- L'i18n est configuré pour FR (défaut) et EN
-- Tous les composants suivent Atomic Design
+- Les données sont actuellement mockées dans `/src/data/` avec des délais simulés
+- Les stores utilisent `localStorage` pour la persistance automatique
+- L'i18n est configuré pour FR (défaut) et EN avec routing préfixé
+- Tous les composants suivent Atomic Design (atoms → molecules → organisms)
+- Les toasts remplacent tous les `alert()` natifs pour une meilleure UX
+- Le Dashboard est connecté aux vraies données mockées avec statistiques réelles
+- Les préférences, style d'écriture et intégrations sont sauvegardables fonctionnellement
 
 BRANCO Aurélien.
