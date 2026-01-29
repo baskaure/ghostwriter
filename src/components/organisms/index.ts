@@ -7,3 +7,4 @@ export { DashboardHeader } from "./DashboardHeader/DashboardHeader";
 export { DashboardSidebar } from "./DashboardSidebar/DashboardSidebar";
 export { AuthGuard } from "./AuthGuard/AuthGuard";
 export { EditorialCalendar } from "./EditorialCalendar/EditorialCalendar";
+export { ProfileSidebar } from "./ProfileSidebar/ProfileSidebar";

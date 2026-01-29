@@ -3,23 +3,21 @@
 import { useProfile } from "@/hooks/useProfile";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { PageHeader } from "@/components/organisms";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 
-export default function ProfilePage() {
+export default function ProfileOverviewPage() {
   const { profile: user, isLoading } = useProfile();
 
   if (isLoading && !user) {
     return (
       <div className="space-y-6">
-        <PageHeader
-          title="Profil"
-          description="Informations de votre compte"
-        />
-        <p className="text-sm text-muted-foreground">
-          Chargement des informations utilisateur...
-        </p>
+        <div>
+          <h2 className="text-xl font-semibold">Vue d'ensemble</h2>
+          <p className="text-sm text-muted-foreground">
+            Chargement des informations...
+          </p>
+        </div>
       </div>
     );
   }
@@ -27,13 +25,12 @@ export default function ProfilePage() {
   if (!user) {
     return (
       <div className="space-y-6">
-        <PageHeader
-          title="Profil"
-          description="Informations de votre compte"
-        />
-        <p className="text-sm text-muted-foreground">
-          Aucune information utilisateur disponible.
-        </p>
+        <div>
+          <h2 className="text-xl font-semibold">Vue d'ensemble</h2>
+          <p className="text-sm text-muted-foreground">
+            Aucune information utilisateur disponible.
+          </p>
+        </div>
       </div>
     );
   }
@@ -47,10 +44,12 @@ export default function ProfilePage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        title="Profil"
-        description="Informations de votre compte et préférences"
-      />
+      <div>
+        <h2 className="text-xl font-semibold">Vue d'ensemble</h2>
+        <p className="text-sm text-muted-foreground">
+          Informations générales de votre compte
+        </p>
+      </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>
@@ -202,7 +201,7 @@ export default function ProfilePage() {
                   ? user.connectedAccounts.linkedin.username
                   : "Non connecté"}
               </span>
-              </div>
+            </div>
             <div className="flex items-center gap-2">
               <Badge
                 variant={user.connectedAccounts.twitter.connected ? "outline" : "secondary"}

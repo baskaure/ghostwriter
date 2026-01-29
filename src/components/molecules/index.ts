@@ -6,3 +6,4 @@ export { PlatformSelector } from "./PlatformSelector/PlatformSelector";
 export { PostTypeSelector } from "./PostTypeSelector/PostTypeSelector";
 export { VariationCard } from "./VariationCard/VariationCard";
 export { FilterBar } from "./FilterBar/FilterBar";
+export { Pagination } from "./Pagination/Pagination";

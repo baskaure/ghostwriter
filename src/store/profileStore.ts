@@ -48,8 +48,8 @@ export const useProfileStore = create<ProfileState>()(
                 ? e.message
                 : "Impossible de charger le profil",
           });
-        }
-      },
+    }
+  },
 
       setProfile(user) {
         set({ profile: user, hasLoaded: true, error: null });

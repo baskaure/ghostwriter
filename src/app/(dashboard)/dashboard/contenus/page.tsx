@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,27 +8,19 @@ import { PageHeader } from "@/components/organisms/PageHeader/PageHeader";
 import { FilterBar } from "@/components/molecules/FilterBar/FilterBar";
 import { PostList } from "@/components/organisms/PostList/PostList";
 import { usePostStore } from "@/store/postStore";
-import type { PostStatus, SocialPlatform, Post } from "@/types/post";
+import { usePostsFilters } from "@/hooks/usePostsFilters";
+import type { Post } from "@/types/post";
 
 export default function ContenusPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [statusFilter, setStatusFilter] = useState<PostStatus | "all">("all");
-  const [platformFilter, setPlatformFilter] = useState<SocialPlatform | "all">("all");
-
   const { posts, deletePost, updatePost } = usePostStore();
 
-  const filteredPosts = useMemo(() => {
-    return posts.filter((post) => {
-      const matchesSearch =
-        searchQuery === "" ||
-        post.content.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesStatus = statusFilter === "all" || post.status === statusFilter;
-      const matchesPlatform =
-        platformFilter === "all" || post.platform === platformFilter;
-
-      return matchesSearch && matchesStatus && matchesPlatform;
-    });
-  }, [posts, searchQuery, statusFilter, platformFilter]);
+  const {
+    filters,
+    filteredPosts,
+    updateSearch,
+    updateStatus,
+    updatePlatform,
+  } = usePostsFilters(posts);
 
   const handleDelete = (post: Post) => {
     if (confirm("Êtes-vous sûr de vouloir supprimer ce post ?")) {
@@ -68,12 +59,12 @@ export default function ContenusPage() {
       <Card>
         <CardContent className="pt-6">
           <FilterBar
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            statusFilter={statusFilter}
-            onStatusFilterChange={setStatusFilter}
-            platformFilter={platformFilter}
-            onPlatformFilterChange={setPlatformFilter}
+            searchQuery={filters.search}
+            onSearchChange={updateSearch}
+            statusFilter={filters.status}
+            onStatusFilterChange={updateStatus}
+            platformFilter={filters.platform}
+            onPlatformFilterChange={updatePlatform}
           />
         </CardContent>
       </Card>
